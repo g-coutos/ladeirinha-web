@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CTA } from "./components/cta";
+import { WaitlistForm } from "./components/waitlist-form";
 
 const HOW_IT_WORKS = [
   {
@@ -183,6 +184,13 @@ export default function Home() {
           que querem acompanhar seu desnível anual sem complicações.
         </p>
       </section> */}
+
+      <section
+        id="entrar-na-lista"
+        className="mb-30 flex flex-col items-center scroll-m-5"
+      >
+        <WaitlistForm />
+      </section>
     </main>
   );
 }
