@@ -1,4 +1,4 @@
-import Image from "next/image";
+/** biome-ignore-all lint/performance/noImgElement: need mobile first approach */
 import { CTA } from "./components/cta";
 import { WaitlistForm } from "./components/waitlist-form";
 
@@ -52,12 +52,11 @@ export default function Home() {
     <main className="max-w-5xl w-full mx-auto px-6 md:px-0">
       <section className="flex flex-col items-center pt-20">
         <div className="flex flex-col items-center gap-2">
-          <Image
+          <img
             src="/assets/images/mountain.png"
             alt="Logo do Ladeirinha"
             width={50}
             height={38}
-            className="w-auto h-auto"
           />
           <h1 className="text-2xl font-serif">ladeirinha</h1>
         </div>
@@ -69,15 +68,15 @@ export default function Home() {
             Trail Run Matinal
           </span>
           <span className="text-xs md:text-sm text-gray-500">
-            <Image
+            <img
               src="/assets/images/mountain.png"
               alt="Emoji de montanha"
               width={20}
-              height={20}
-              className="mx-2 inline-block w-auto h-auto"
+              height={15}
+              className="mx-2 inline-block h-auto"
             />
             {new Date().getFullYear()} = 5,335 m |
-            <Image
+            <img
               src="/assets/images/point_right.png"
               alt="Emoji de mão apontando para a direita"
               width={20}
@@ -92,7 +91,6 @@ export default function Home() {
 
       <section id="como-funciona" className="my-40 md:my-60 scroll-m-5">
         <div className="relative">
-          {/** biome-ignore lint/performance/noImgElement: need mobile first approach */}
           <img
             className="w-12.5 md:w-25 h-12.5 md:h-25 absolute left-[5%] md:left-[10%] top-[50%] -translate-y-1/2 -rotate-45"
             src="/assets/images/man-running.png"
@@ -100,7 +98,6 @@ export default function Home() {
           />
           <h2 className="font-serif text-4xl text-center">Como Funciona?</h2>
           <p className="mt-6 text-center">Relaxa, é super simples:</p>
-          {/** biome-ignore lint/performance/noImgElement: need mobile first approach */}
           <img
             className="w-12.5 md:w-25 h-12.5 md:h-25 absolute right-[5%] md:right-[10%] top-[50%] -translate-y-1/2 rotate-45"
             src="/assets/images/woman-biking.png"
@@ -116,7 +113,7 @@ export default function Home() {
             >
               <div className="flex justify-between items-start">
                 <span className="text-4xl text-gray-500">0{index + 1}</span>
-                <Image
+                <img
                   src={item.image}
                   alt={`Imagem do passo ${index + 1} de como funciona o LadeirinhA`}
                   width={25}
@@ -137,7 +134,7 @@ export default function Home() {
         id="por-que-usar"
         className="mb-40 md:mb-60 flex flex-col items-center scroll-m-5"
       >
-        <Image
+        <img
           src="/assets/images/trophy.png"
           alt="Logo do LadeirinhA"
           width={60}
@@ -171,7 +168,7 @@ export default function Home() {
         id="precos"
         className="mb-60 flex flex-col items-center scroll-m-5"
       >
-        <Image
+        <img
           src="/assets/gifs/pricing.gif"
           alt="Logo do LadeirinhA"
           width={60}
