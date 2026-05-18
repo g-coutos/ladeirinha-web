@@ -34,7 +34,7 @@ export function WaitlistForm() {
           <button
             type="submit"
             disabled={pending}
-            className="w-full px-6 py-2 border rounded bg-[#FC4C02] text-white font-medium disabled:opacity-60"
+            className="w-full px-6 py-2 border rounded bg-[#FC4C02] text-white disabled:opacity-60"
           >
             {pending ? "Enviando..." : "Entrar na Lista de Espera"}
           </button>

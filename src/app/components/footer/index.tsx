@@ -18,11 +18,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <span className="block md:inline mb-2 md:mb-0 md:mr-4">
-              Ladeirinha © {new Date().getFullYear()}
-            </span>
-            <span className="block italic md:inline">
-              Ladeirinha não é afiliado ao <b>Strava</b>
+            <span className="block md:inline">
+              Ladeirinha © {new Date().getFullYear()} não é afiliado ao{" "}
+              <b>Strava</b>
             </span>
           </div>
         </div>

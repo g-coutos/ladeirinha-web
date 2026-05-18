@@ -3,7 +3,6 @@ import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 
 import { Footer } from "./components/footer";
-import { Header } from "./components/header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,9 +32,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">
-        <Header />
         {children}
         <Footer />
       </body>
