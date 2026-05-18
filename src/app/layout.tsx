@@ -8,12 +8,14 @@ import { Header } from "./components/header";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  preload: true,
 });
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
   weight: "400",
+  preload: true,
 });
 
 export const metadata: Metadata = {

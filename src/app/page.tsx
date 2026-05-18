@@ -57,6 +57,7 @@ export default function Home() {
             alt="Logo do Ladeirinha"
             width={50}
             height={38}
+            className="w-auto h-auto"
           />
           <h1 className="text-2xl font-serif">ladeirinha</h1>
         </div>
@@ -73,7 +74,7 @@ export default function Home() {
               alt="Emoji de montanha"
               width={20}
               height={20}
-              className="mx-2 inline-block"
+              className="mx-2 inline-block w-auto h-auto"
             />
             {new Date().getFullYear()} = 5,335 m |
             <Image
@@ -89,7 +90,7 @@ export default function Home() {
         <CTA link="#entrar-na-lista" text="Entrar na Lista de Espera" />
       </section>
 
-      <section id="como-funciona" className="my-60 scroll-m-5">
+      <section id="como-funciona" className="my-40 md:my-60 scroll-m-5">
         <div className="relative">
           {/** biome-ignore lint/performance/noImgElement: need mobile first approach */}
           <img
@@ -134,7 +135,7 @@ export default function Home() {
 
       <section
         id="por-que-usar"
-        className="mb-60 flex flex-col items-center scroll-m-5"
+        className="mb-40 md:mb-60 flex flex-col items-center scroll-m-5"
       >
         <Image
           src="/assets/images/trophy.png"
