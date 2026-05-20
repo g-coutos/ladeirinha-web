@@ -6,6 +6,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade — Ladeirinha",
+  description:
+    "Política de Privacidade do Ladeirinha: como coletamos, usamos e protegemos seus dados ao integrar com o Strava.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function Page() {

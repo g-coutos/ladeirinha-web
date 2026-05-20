@@ -3,6 +3,61 @@ import { CTA } from "./components/cta";
 import { Header } from "./components/header";
 import { WaitlistForm } from "./components/waitlist-form";
 
+const softwareAppJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Ladeirinha",
+  description:
+    "App que adiciona a elevação acumulada do ano na descrição das atividades do Strava.",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "BRL",
+  },
+  url: "https://ladeirinha.com.br",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Como o Ladeirinha funciona?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Conecte sua conta no Strava, registre uma atividade (Run, Trail Run, Bike, Mountain Bike) e o Ladeirinha adiciona automaticamente a elevação acumulada do ano na descrição da atividade.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quais modalidades são suportadas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Run, Trail Run, Bike, Mountain Bike e outras atividades registradas no Strava. Corridas e pedais são contados separadamente, cada modalidade com seu próprio histórico.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Onde aparece a elevação acumulada?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A elevação acumulada do ano aparece direto na descrição da atividade no Strava, atualizada automaticamente a cada novo registro.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Preciso abrir algum app para ver o desnível acumulado?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Não. O Ladeirinha atualiza a elevação acumulada automaticamente a cada atividade registrada, sem precisar abrir nenhum app.",
+      },
+    },
+  ],
+};
+
 const HOW_IT_WORKS = [
   {
     id: 1,
@@ -51,6 +106,16 @@ const MOTIVES = [
 export default function Home() {
   return (
     <>
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Header />
       <main className="max-w-5xl w-full mx-auto px-6 md:px-0">
         <section className="flex flex-col items-center pt-20">
