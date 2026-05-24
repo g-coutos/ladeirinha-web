@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ladeirinha
+
+Marketing website for Ladeirinha — a Strava integration that automatically adds your annual elevation gain to every activity description.
+
+## The Problem
+
+Strava doesn't surface cumulative yearly elevation in a visible, always-on way. Athletes with annual elevation goals have to manually check stats or build spreadsheets to track progress. Ladeirinha solves this by writing running and cycling elevation totals directly into the activity description after every workout — no extra apps, no manual tracking.
+
+## Key Features
+
+- Automatic annual elevation update on every Strava activity
+- Running and cycling tracked separately, each with its own yearly total
+- Elevation appears in the activity description, where athletes already look
+- Fully free — no ads, no fees
+- Waitlist signup via email (Resend)
+- PostHog analytics
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| UI | React 19 + Tailwind CSS v4 |
+| Fonts | Inter + Instrument Serif (via `next/font/google`) |
+| Email / Contacts | Resend |
+| Analytics | PostHog |
+| Linter / Formatter | Biome |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- A [Resend](https://resend.com) account with an audience created
+- A [PostHog](https://posthog.com) project
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file at the project root:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+RESEND_API_KEY=re_...
+RESEND_AUDIENCE_ID=...
+NEXT_PUBLIC_POSTHOG_KEY=phc_...
+NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
+```
 
-## Learn More
+### Run
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev      # development server on localhost:3000
+npm run build    # production build
+npm run check    # lint with Biome
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/app/
+  layout.tsx                          # Root layout: fonts, PostHog provider, Footer
+  page.tsx                            # Landing page (Hero, How It Works, Why Use, Pricing, Waitlist)
+  actions.ts                          # Server action: waitlist signup via Resend
+  globals.css                         # Tailwind imports + theme tokens
+  components/
+    header/index.tsx                  # Navigation with anchor links
+    footer/index.tsx                  # Links and copyright
+    cta/index.tsx                     # Reusable CTA button (anchor)
+    waitlist-form/index.tsx           # Email capture form with server action
+    posthog-provider/index.tsx        # PostHog client provider
+  politica-de-privacidade/page.tsx    # Privacy policy page
+public/assets/
+  images/                             # PNG/JPG assets
+  elements/                           # SVG decorative elements
+  gifs/                               # Animated assets
+```
