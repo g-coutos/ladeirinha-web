@@ -103,17 +103,27 @@ const MOTIVES = [
   },
 ];
 
+const PRICING = [
+  {
+    id: 1,
+    text: "As atividades registradas recebem o total de elevação do seu ano",
+  },
+  { id: 2, text: "Corridas e pedais são contados separadamente" },
+  { id: 3, text: "Sem anúncios, sem taxas, sem pegadinhas" },
+];
+
 export default function Home() {
   return (
     <>
-      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data */}
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
       />
-      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data */}
+
       <script
         type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static JSON-LD structured data
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
@@ -154,7 +164,11 @@ export default function Home() {
               ladeirinha.com.br
             </span>
           </div>
-          <CTA link="#entrar-na-lista" text="Entrar na Lista de Espera" />
+          <CTA
+            link="#entrar-na-lista"
+            text="Entrar na Lista de Espera"
+            className="mt-18"
+          />
         </section>
 
         <section id="como-funciona" className="my-40 md:my-60 scroll-m-5">
@@ -173,7 +187,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4 mt-30">
+          <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4 mt-15 md:mt-20">
             {HOW_IT_WORKS.map((item, index) => (
               <div
                 key={item.id}
@@ -232,24 +246,46 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section
-        id="precos"
-        className="mb-60 flex flex-col items-center scroll-m-5"
-      >
-        <img
-          src="/assets/gifs/pricing.gif"
-          alt="Logo do LadeirinhA"
-          width={60}
-          height={60}
-          className="block mx-auto"
-        />
-        <h2 className="mt-5 font-serif text-4xl">Preços</h2>
-        <p className="mt-6 text-center max-w-75">
-          O Ladeirinha é gratuito para usar, sem planos pagos ou anúncios. A
-          ideia é manter a simplicidade e acessibilidade para todos os atletas
-          que querem acompanhar seu desnível anual sem complicações.
-        </p>
-      </section> */}
+        <section
+          id="precos"
+          className="mb-60 flex flex-col items-center scroll-m-5"
+        >
+          <img
+            src="/assets/gifs/pricing.gif"
+            alt="Mão com o indicador e o polegar cruzados, simbolizando dinheiro"
+            width={80}
+            height={80}
+            className="block mx-auto"
+          />
+          <h2 className="mt-5 font-serif text-4xl">Preços</h2>
+          <div className="max-w-75 md:max-w-87.5 w-full mt-6 border border-gray-200 rounded-xl">
+            <div className="bg-image bg-linear-to-r/longer from-[#FC4C02] to-[#FFF] p-5 rounded-t-xl text-[#FFF]">
+              <h3 className="text-sm font-semibold">Grátis</h3>
+              <span className="inline-block text-4xl mt-3 font-mono font-medium">
+                <span className="text-sm">R$</span>0
+              </span>
+              <span className="font-mono font-medium text-sm"> / mês</span>
+            </div>
+            <div className="p-5 text-xs md:text-sm ">
+              <ul>
+                {PRICING.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex items-start gap-2 mb-2 last-of-type:mb-0"
+                  >
+                    <span className="text-[#FC4C02]">–</span>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+              <CTA
+                link="#entrar-na-lista"
+                text="Entrar na Lista de Espera"
+                className="mt-5 text-base"
+              />
+            </div>
+          </div>
+        </section>
 
         <section
           id="entrar-na-lista"

@@ -14,8 +14,7 @@ export function WaitlistForm() {
       <h2 className="font-serif text-4xl text-center">Quer ser avisado(a)?</h2>
       <p className="max-w-80 mt-6 text-center text-sm">
         Estamos na fila de aprovação do Strava.
-        <br /> Enquanto isso, você entra na nossa (
-        <span className="italic">fila rs</span>).
+        <br /> Enquanto isso, você entra na nossa Lista de Espera.
       </p>
       {state?.success ? (
         <p className="text-sm text-center text-[#FC4C02]">{state.message}</p>
