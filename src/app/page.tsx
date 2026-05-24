@@ -1,4 +1,5 @@
 /** biome-ignore-all lint/performance/noImgElement: need mobile first approach */
+
 import { CTA } from "./components/cta";
 import { Header } from "./components/header";
 import { WaitlistForm } from "./components/waitlist-form";
