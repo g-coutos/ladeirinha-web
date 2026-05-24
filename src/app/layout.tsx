@@ -1,9 +1,9 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 
 import { Footer } from "./components/footer";
+import { PostHogProvider } from "./components/posthog-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -79,9 +79,10 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd),
           }}
         />
-        {children}
-        <Footer />
-        <Analytics />
+        <PostHogProvider>
+          {children}
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   );

@@ -1,10 +1,18 @@
 "use client";
 
-import { useActionState } from "react";
+import { usePostHog } from "posthog-js/react";
+import { useActionState, useEffect } from "react";
 import { joinWaitlist } from "@/app/actions";
 
 export function WaitlistForm() {
+  const posthog = usePostHog();
   const [state, formAction, pending] = useActionState(joinWaitlist, null);
+
+  useEffect(() => {
+    if (state?.success) {
+      posthog.capture("waitlist_signup");
+    }
+  }, [state, posthog]);
 
   return (
     <form
