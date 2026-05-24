@@ -162,7 +162,7 @@ export default function Home() {
                 height={20}
                 className="mx-2 inline-block"
               />
-              ladeirinha.com.br
+              <span className="underline">ladeirinha.com.br</span>
             </span>
           </div>
           <CTA
