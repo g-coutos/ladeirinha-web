@@ -10,10 +10,10 @@ export const Header = () => {
           <li>
             <a href="#por-que-usar">Por Que Usar</a>
           </li>
-          {/* <li>|</li>
+          <li>|</li>
           <li>
             <a href="#precos">Preços</a>
-          </li> */}
+          </li>
         </ul>
         <a
           href="#entrar-na-lista"
