@@ -164,7 +164,11 @@ export default function Home() {
               ladeirinha.com.br
             </span>
           </div>
-          <CTA link="#entrar-na-lista" text="Entrar na Lista de Espera" />
+          <CTA
+            link="#entrar-na-lista"
+            text="Entrar na Lista de Espera"
+            className="mt-18"
+          />
         </section>
 
         <section id="como-funciona" className="my-40 md:my-60 scroll-m-5">
@@ -256,13 +260,13 @@ export default function Home() {
           <h2 className="mt-5 font-serif text-4xl">Preços</h2>
           <div className="max-w-75 md:max-w-87.5 w-full mt-6 border border-gray-200 rounded-xl">
             <div className="bg-image bg-linear-to-r/longer from-[#FC4C02] to-[#FFF] p-5 rounded-t-xl text-[#FFF]">
-              <h3 className="text-sm">Grátis</h3>
+              <h3 className="text-sm font-semibold">Grátis</h3>
               <span className="inline-block text-4xl mt-3 font-mono font-medium">
                 <span className="text-sm">R$</span>0
               </span>
               <span className="font-mono font-medium text-sm"> / mês</span>
             </div>
-            <div className="p-5 text-xs md:text-sm">
+            <div className="p-5 text-xs md:text-sm ">
               <ul>
                 {PRICING.map((item) => (
                   <li
@@ -274,6 +278,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <CTA
+                link="#entrar-na-lista"
+                text="Entrar na Lista de Espera"
+                className="mt-5 text-base"
+              />
             </div>
           </div>
         </section>
